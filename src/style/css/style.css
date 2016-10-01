@@ -1,5 +1,336 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.clr {
+  *zoom: 1;
+}
+
+.clr:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 body {
   background-color: #fff;
-  font-family: 'Ubuntu', sans-serif;
-  font-family: 'Ubuntu Condensed', sans-serif;
+  font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  width: 1160px;
+  margin: 0 auto;
+}
+
+.top-head {
+  width: 100%;
+  padding-top: 35px;
+}
+
+.header {
+  padding-bottom: 35px;
+}
+
+.logo {
+  width: 220px;
+  float: left;
+}
+
+.logo a {
+  display: block;
+  text-decoration: none;
+  padding-left: 48px;
+  background: url("../../images/logo-header.jpg") left center no-repeat;
+  color: #434343;
+  font-family: Ubuntu, sans-serif;
+  line-height: 10px;
+}
+
+.logo__title {
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 28px;
+}
+
+.logo__txt {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 11px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.social-ico {
+  float: right;
+  margin-top: 12px;
+}
+
+.social-ico__item {
+  display: inline-block;
+  width: 17px;
+  height: 16px;
+  margin-left: 5px;
+  background: url(../../images/social-sprite.png) no-repeat;
+}
+
+.social-ico__item:nth-child(1) {
+  background-position: 6px 0;
+}
+
+.social-ico__item:nth-child(1):hover {
+  background-position: 6px -16px;
+}
+
+.social-ico__item:nth-child(2) {
+  background-position: -10px 0;
+}
+
+.social-ico__item:nth-child(2):hover {
+  background-position: -10px -16px;
+}
+
+.social-ico__item:nth-child(3) {
+  background-position: -27px 0;
+}
+
+.social-ico__item:nth-child(3):hover {
+  background-position: -27px -16px;
+}
+
+.social-ico__item:nth-child(4) {
+  background-position: -44px 0;
+}
+
+.social-ico__item:nth-child(4):hover {
+  background-position: -44px -16px;
+}
+
+.social-ico__item:nth-child(5) {
+  background-position: -61px 0;
+}
+
+.social-ico__item:nth-child(5):hover {
+  background-position: -61px -16px;
+}
+
+.navigate {
+  background-color: #2a2d32;
+  font: "Ubuntu Condensed", sans-serif;
+  margin-bottom: 40px;
+}
+
+.navigate__item {
+  display: inline-block;
+}
+
+.navigate__link {
+  display: block;
+  height: 56px;
+  border-right: 1px solid #181a1d;
+  padding: 0 40px;
+  line-height: 56px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #fff;
+}
+
+.navigate__link:hover {
+  color: #f4b60d;
+}
+
+.navigate-form {
+  float: right;
+  position: relative;
+}
+
+.navigate-form__search {
+  color: #fff;
+  padding: 0 25px 0 15px;
+  background-color: #35383c;
+  border: 1px solid #181a1d;
+  width: 240px;
+  height: 40px;
+  font-size: 12px;
+  margin: 8px;
+}
+
+.navigate-form__search:focus {
+  outline: none;
+}
+
+.navigate-form__submit {
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 14px;
+  height: 14px;
+  background: transparent url("../../images/search.png") no-repeat center;
+  border: none;
+  cursor: pointer;
+}
+
+.navigate-form__submit:focus {
+  outline: none;
+}
+
+.owl-carousel {
+  position: relative;
+}
+
+.owl-carousel__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.item-title {
+  font-size: 54px;
+  font-family: Ubuntu, sans-serif;
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.item-title__top {
+  position: relative;
+  width: 215px;
+  height: 114px;
+  padding: 30px 0 0 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+.item-title__top span {
+  color: #f4b60d;
+}
+
+.item-title__bottom {
+  width: 310px;
+  padding: 25px 0 25px 30px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.owl-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.features {
+  padding: 70px 0 85px;
+}
+
+.features-item {
+  display: inline-block;
+  width: 33%;
+}
+
+.features-item__ico {
+  height: 32px;
+  width: 32px;
+  background: url("../../images/advantage-sprite.png") no-repeat;
+}
+
+.features-item:nth-child(1) .features-item__ico {
+  background-position: 0 0;
+}
+
+.features-item:nth-child(2) .features-item__ico {
+  background-position: -32px 0;
+}
+
+.features-item:nth-child(3) .features-item__ico {
+  background-position: -65px 0;
+}
+
+.features-item:nth-child(3) .features-item__inner-wrap {
+  padding-right: 0;
+}
+
+.features-item__num {
+  vertical-align: top;
+  float: left;
+  font-size: 90px;
+  font-family: Ubuntu, sans-serif;
+  color: rgba(42, 43, 46, 0.1);
+}
+
+.features-item__inner-wrap {
+  padding: 0 25px 0 120px;
+}
+
+.features-item__title {
+  color: #2a2b2e;
+  font-size: 20px;
+  font-family: Ubuntu, sans-serif;
+  padding: 20px 0 30px;
+}
+
+.features-item__txt {
+  font-size: 13px;
+  color: #8a8a8a;
+  line-height: 20px;
+  padding-bottom: 25px;
 }
