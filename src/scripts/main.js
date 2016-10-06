@@ -25,7 +25,7 @@ $(document).ready(function () {
 		rewindSpeed: 1000,
 
 		//Autoplay
-		autoPlay: false,
+		autoPlay: true,
 		stopOnHover: true,
 
 		//Pagination
@@ -68,4 +68,56 @@ $(document).ready(function () {
 		}
 	});
 
+//	lodash Работа с массивами.
+
+//	1. Массив скиллов (поле skills) всех людей, не
+// должно быть повторяющихся скиллов, так же они должны быть
+// отсортированы по алфавиту;
+
+	console.log("\n------- Исходный объект ------");
+	console.log(data);
+
+	var skillsArr =
+		_.chain(data)       //цепочный вызов
+			.map('skills')    //получаем массивы из поля skills
+			.flattenDeep()    //достаем элементы из вложенных масивов
+			.uniq()           //оставляем уникальные значения
+			.sort()           // сортировка
+			.value();         //возвращаем полученное значение
+
+	console.log("\n------- Отсортированный массив скилов------");
+	console.log(skillsArr);
+
+//2. Массив имен (поле name) людей, отсортированных в
+// зависимости от количества их друзей (friends)
+
+	var nameArr =
+		_.chain(data)       //цепочный вызов
+		//получаем массив объектов = {'name', 'friends'}
+			.map(function (el) {
+				return _.pick(el, ['name', 'friends'])
+			})
+			// сортировка по количеству друзей
+			.sortBy([function (el) {
+				return el.friends.length;
+			}])
+			.map('name')       //получаем массив из поля name
+			.value();         //возвращаем полученное
+
+	console.log("\n------- Отсортированный массив имен по количеству друзей------");
+	console.log(nameArr);
+
+
+	//3. Массив всех друзей всех пользователей, не должно быть повторяющихся людей
+
+	var friendsNameArr =
+		_.chain(data)       //цепочный вызов
+			.map('friends')    //получаем массивы из поля friends
+			.flattenDeep()    //достаем элементы (обьекты) из вложенных масивов
+			.map('name')     //получаем массив из поля name
+			.uniq()           //оставляем уникальные значения
+			.value();         //возвращаем полученное значение
+
+	console.log("\n------- Массив друзей ------");
+	console.log(friendsNameArr);
 });
