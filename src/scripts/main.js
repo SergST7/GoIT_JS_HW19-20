@@ -77,12 +77,23 @@ $(document).ready(function () {
 	console.log("\n------- Исходный объект ------");
 	console.log(data);
 
+	//helper для учета верхнего регистра букв при сортировке
+	function anyCase(a, b) {
+		if (a.toLowerCase() > b.toLowerCase())
+			return 1;
+		if (a.toLowerCase() < b.toLowerCase())
+			return -1;
+		else
+			return 0;
+	}
+
 	var skillsArr =
 		_.chain(data)       //цепочный вызов
 			.map('skills')    //получаем массивы из поля skills
 			.flattenDeep()    //достаем элементы из вложенных масивов
 			.uniq()           //оставляем уникальные значения
-			.sort()           // сортировка
+			// .map(function(i) { return i.toLowerCase()})
+			.sort(anyCase)           // сортировка
 			.value();         //возвращаем полученное значение
 
 	console.log("\n------- Отсортированный массив скилов------");
